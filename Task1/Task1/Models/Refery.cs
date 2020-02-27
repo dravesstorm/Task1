@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Task1.Models
 {
-    enum Preferences
+    public enum Preferences
     {
         neutral,
         firstTeam,
@@ -14,20 +14,16 @@ namespace Task1.Models
     public class Refery
     {
         public string Name { get; set; }
-        Preferences pref = Preferences.neutral;
+        public Preferences pref { get; set; }        
         public Refery(string _Name)
         {
+            pref = Preferences.neutral;
             Name = _Name;
         }
-
-        public void NoticeGoal(Team scored) //передаётся команда забившая гол
+        public Refery(string _Name, Preferences _pref)
         {
-            Console.WriteLine($"Команда {scored.Name} забила гол!");
-        }
-
-        public void NoticeFoul(Team scored) //передаётся команда нарушившая  правила
-        {
-            Console.WriteLine($"Команда {scored.Name} нарушила правила!");
+            pref = _pref;
+            Name = _Name;
         }
 
     }

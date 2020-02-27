@@ -53,18 +53,17 @@ namespace Task1
             RealServices.ShowTrainer();
             Console.WriteLine("\n\n");
 
-            Refery skomina = new Refery("Skomina");
+            Refery skomina = new Refery("Skomina", Preferences.firstTeam);
 
             Game FIFA1 = new Game(BarselonaServices.MyTeam, RealServices.MyTeam, skomina);
-           // Game FIFA1 = new Game(bars, real, skomina);
+            //Game FIFA1 = new Game(bars, real, skomina);
             GameService FIFA1service = new GameService(FIFA1);
 
             FIFA1service.Start();
-            FIFA1service.eGoal += skomina.NoticeGoal;
-            FIFA1service.eFoul += skomina.NoticeFoul;
+            FIFA1service.eGoal += FIFA1service.NoticeGoal;
             FIFA1service.Goal(bars);
-            FIFA1service.Foul(real);
-            FIFA1service.ShowResult();
+            FIFA1service.Goal(real);
+            FIFA1service.ShowGoalCount();
             Console.ReadKey();
         }
     }

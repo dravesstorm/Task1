@@ -11,13 +11,13 @@ namespace Task1.Models
         private Team _second;
         public Refery _refery;
         public Team First => _first;
-        public Team Second => _first;
+        public Team Second => _second ;
         public int[] goalCount = new int[2];
         public Game( Team first,  Team second, Refery refery)
         {
             try
             {
-                if (first.team.Count < 11 || first.team.Count < 11) throw new Exception("Неполный состав команд");
+                if (first.team.Count < 11 || second.team.Count < 11) throw new Exception("Неполный состав команд");
                 _first = first;
                 _second = second;
                 _refery = refery;
