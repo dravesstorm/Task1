@@ -7,9 +7,9 @@ using Task1.Exceptions;
 
 namespace Task1.Services
 {
-    class GameService
+    public class GameService
     {
-        public Game _game;
+        Game _game;
 
         public GameService(Game game)
         {

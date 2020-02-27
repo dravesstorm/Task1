@@ -11,7 +11,7 @@ namespace Task1.Models
         firstTeam,
         secondTeam
     }
-    class Refery
+    public class Refery
     {
         public string Name { get; set; }
         Preferences pref = Preferences.neutral;

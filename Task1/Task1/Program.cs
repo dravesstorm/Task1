@@ -26,6 +26,7 @@ namespace Task1
             BarselonaServices.Add(new Footballer("Good", 26));
             BarselonaServices.Add(new Footballer("Rosario ", 28));
             BarselonaServices.Add(new Footballer("McKinstry ", 32));
+
             BarselonaServices.Show();
             BarselonaServices.ShowTrainer();
             Console.WriteLine("\n\n");
@@ -55,8 +56,9 @@ namespace Task1
             Refery skomina = new Refery("Skomina");
 
             Game FIFA1 = new Game(BarselonaServices.MyTeam, RealServices.MyTeam, skomina);
+           // Game FIFA1 = new Game(bars, real, skomina);
             GameService FIFA1service = new GameService(FIFA1);
-           
+
             FIFA1service.Start();
             FIFA1service.eGoal += skomina.NoticeGoal;
             FIFA1service.eFoul += skomina.NoticeFoul;

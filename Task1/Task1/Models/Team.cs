@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Task1.Models
 {
-    class Team
+    public class Team
     {
         public string Name { get; set; }
         public List<Footballer> team = new List<Footballer>();

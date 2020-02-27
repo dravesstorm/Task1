@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Task1.Models
 {
-    class Footballer
+    public class Footballer
     {
         public string Name { get; set; }
         public int Age { get; set; }

@@ -8,3 +8,8 @@ D:\3 year\Team International\Task1\Task1\bin\Debug\Task1.pdb
 D:\3 year\Team International\Task1\Task1\obj\Debug\Task1.csprojAssemblyReference.cache
 D:\3 year\Team International\Task1\Task1\obj\Debug\Task1.exe
 D:\3 year\Team International\Task1\Task1\obj\Debug\Task1.pdb
+C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\bin\Debug\Task1.exe
+C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\bin\Debug\Task1.pdb
+C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\obj\Debug\Task1.csprojAssemblyReference.cache
+C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\obj\Debug\Task1.exe
+C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\obj\Debug\Task1.pdb
