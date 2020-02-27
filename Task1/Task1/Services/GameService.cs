@@ -55,10 +55,10 @@ namespace Task1.Services
             Console.WriteLine($"Игра {_game.First.Name} VS {_game.Second.Name} началась!");
             Console.WriteLine($"Рефери {_game._refery.Name} подсуживает команде {_game._refery.pref}");
             try
-            {
+            {   //генерация случайного исключения
                 Random rand = new Random();
-                int idExpt = rand.Next(0, 5);
-                switch (idExpt)
+                int idExсpt = rand.Next(0, 5);
+                switch (idExсpt)
                 {
                     case 0: Console.WriteLine("Игра прошла нормально :з"); break;
                     case 1: throw new WeatherException("Землетрясение", 10);
@@ -74,7 +74,7 @@ namespace Task1.Services
             }
             catch (FanException fex)
             {
-                Console.WriteLine($"Фанат {fex.Age} выбежал на поле");
+                Console.WriteLine($"Фанат {fex.Age} лет выбежал на поле");
             }
             catch (DiseaseException dex)
             {
@@ -110,9 +110,9 @@ namespace Task1.Services
                         if (scored == _game.Second && rnd.Next(0, 100) > 50)
                         {
                             _game.goalCount[1]++;
-                            Console.WriteLine($"Но гол засчитан");
+                            Console.WriteLine("Гол засчитан");
                         }
-                        else Console.WriteLine($"Гол не засчитан");
+                        else Console.WriteLine("Но гол не засчитан");
                     }
 
                 }
@@ -125,9 +125,9 @@ namespace Task1.Services
                         if (scored == _game.First && rnd.Next(0, 100) > 50)
                         {
                             _game.goalCount[0]++;
-                            Console.WriteLine($"Но гол засчитан");
+                            Console.WriteLine("Но гол засчитан");
                         }
-                        else Console.WriteLine($"Гол не засчитан");
+                        else Console.WriteLine("Гол не засчитан");
                     }
                 }
             }

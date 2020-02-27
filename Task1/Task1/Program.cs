@@ -15,6 +15,7 @@ namespace Task1
             Team bars = new Team("Barselona", tr_bars);
             TeamService BarselonaServices = new TeamService(bars);
 
+            //добавление футболистов
             BarselonaServices.Add(new Footballer("Tolmachev", 32));
             BarselonaServices.Add(new Footballer("Pyatigoret", 21));
             BarselonaServices.Add(new Footballer("Silverman", 22));
@@ -26,8 +27,15 @@ namespace Task1
             BarselonaServices.Add(new Footballer("Good", 26));
             BarselonaServices.Add(new Footballer("Rosario ", 28));
             BarselonaServices.Add(new Footballer("McKinstry ", 32));
+            //удаление слабейшего игрока
+            BarselonaServices.RemoveWeakest();
+            BarselonaServices.Add(new Footballer("Emelianenko ", 26));
 
             BarselonaServices.Show();
+            Console.WriteLine("\nПопытка добавить 12 игрока");
+            BarselonaServices.Add(new Footballer("McKinstry ", 32));
+            Console.WriteLine("Игроки старше 30 лет:");
+            BarselonaServices.ShowSenior();
             BarselonaServices.ShowTrainer();
             Console.WriteLine("\n\n");
 
@@ -56,7 +64,6 @@ namespace Task1
             Refery skomina = new Refery("Skomina", Preferences.firstTeam);
 
             Game FIFA1 = new Game(BarselonaServices.MyTeam, RealServices.MyTeam, skomina);
-            //Game FIFA1 = new Game(bars, real, skomina);
             GameService FIFA1service = new GameService(FIFA1);
 
             FIFA1service.Start();
@@ -64,6 +71,9 @@ namespace Task1
             FIFA1service.Goal(bars);
             FIFA1service.Goal(real);
             FIFA1service.ShowGoalCount();
+
+            //исход матча зависит от удачи тренера уровня навыка футболистов
+            FIFA1service.ShowResult();
             Console.ReadKey();
         }
     }
