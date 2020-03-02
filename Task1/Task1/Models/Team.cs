@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Task1.Structures;
 
 namespace Task1.Models
 {
     public class Team
     {
         public string Name { get; set; }
-        public List<Footballer> team = new List<Footballer>();
+        public MyList<Footballer> team = new MyList<Footballer>();
         public double TeamSkillLevel = 0;
         public double TeamSkill => TeamSkillLevel;
         public Trainer trainer;

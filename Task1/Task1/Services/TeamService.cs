@@ -10,10 +10,12 @@ namespace Task1.Services
     {
 
         public Team MyTeam;
+        IWriter writer;
 
-        public TeamService(Team _MyTeam)
+        public TeamService(Team _MyTeam, IWriter writer)
         {
             MyTeam = _MyTeam;
+            this.writer = writer;
         }
 
         public void Add(Footballer fb)
@@ -29,7 +31,7 @@ namespace Task1.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Ошибка: {e.Message}");
+                writer.WriteLine($"Ошибка: {e.Message}");
             }
         }
         public void Remove(string name)
@@ -57,17 +59,16 @@ namespace Task1.Services
 
         public void Show()
         {
-            Console.WriteLine($"{this.MyTeam.Name}");
+            writer.WriteLine($"{this.MyTeam.Name}");
             var result = from fb in MyTeam.team
                          orderby fb.Name
                          select fb;
 
             foreach (Footballer fb in result)
             {
-                Console.Write($"Name: {fb.Name}".PadRight(25));
-                Console.Write($"Age: {fb.Age}\t\t");
-                Console.Write($"Skill: {fb.SkillLevel}");
-                Console.WriteLine();
+                writer.Write($"Name: {fb.Name}".PadRight(25));
+                writer.Write($"Age: {fb.Age}\t\t");
+                writer.Write($"Skill: {fb.SkillLevel}\n");
             }
         }
 
@@ -79,18 +80,17 @@ namespace Task1.Services
                          select fb;
             foreach (Footballer fb in result)
             {
-                Console.Write($"Name: {fb.Name}".PadRight(25));
-                Console.Write($"Age: {fb.Age}\t\t");
-                Console.Write($"Skill: {fb.SkillLevel}");
-                Console.WriteLine();
+                writer.Write($"Name: {fb.Name}".PadRight(25));
+                writer.Write($"Age: {fb.Age}\t\t");
+                writer.Write($"Skill: {fb.SkillLevel}\n");
             }
         }
 
         public void ShowTrainer()
         {
-            Console.WriteLine("Тренер: ");
-            Console.Write($"Name: {this.MyTeam.trainer.Name}".PadRight(25));
-            Console.Write($"Luck: {this.MyTeam.trainer.LuckLevel}");
+            writer.WriteLine("Тренер: ");
+            writer.Write($"Name: {this.MyTeam.trainer.Name}".PadRight(25));
+            writer.Write($"Luck: {this.MyTeam.trainer.LuckLevel}");
         }
 
 

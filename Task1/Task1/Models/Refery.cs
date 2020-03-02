@@ -7,24 +7,23 @@ namespace Task1.Models
 {
     public enum Preferences
     {
-        neutral,
-        firstTeam,
-        secondTeam
+        Neutral,
+        FirstTeam,
+        SecondTeam
     }
     public class Refery
     {
         public string Name { get; set; }
-        public Preferences pref { get; set; }        
-        public Refery(string _Name)
+        public Preferences Pref { get; set; }
+        public Refery(string _name)
         {
-            pref = Preferences.neutral;
-            Name = _Name;
+            Pref = Preferences.Neutral;
+            Name = _name;
         }
-        public Refery(string _Name, Preferences _pref)
+        public Refery(string _name, Preferences _pref)
         {
-            pref = _pref;
-            Name = _Name;
+            Pref = _pref;
+            Name = _name;
         }
-
     }
 }

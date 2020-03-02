@@ -14,11 +14,11 @@ namespace Task1.Models
 
         static Random rnd = new Random();
 
-        public Footballer(string _Name, int _Age)
+        public Footballer(string _name, int _age)
         {
 
-            Name = _Name;
-            Age = _Age;
+            Name = _name;
+            Age = _age;
             skillLevel = rnd.Next(0, 100);
 
         }
