@@ -6,19 +6,19 @@ using System.Text;
 namespace Task1.Structures
 {
     public class Node<T>
-{
-    public Node(T data)
     {
-        Data = data;
+        public Node(T data)
+        {
+            Data = data;
+        }
+        public T Data { get; set; }
+        public Node<T> Next { get; set; }
     }
-    public T Data { get; set; }
-    public Node<T> Next { get; set; }
-}
 
     public class MyList<T> : IEnumerable<T>  // односвязный список
     {
-        Node<T> head; // головной/первый элемент
-        Node<T> tail; // последний/хвостовой элемент
+        public Node<T> head; // головной/первый элемент
+        public Node<T> tail; // последний/хвостовой элемент
         int count;  // количество элементов в списке
 
         // добавление элемента
@@ -95,7 +95,8 @@ namespace Task1.Structures
                 current = current.Next;
             }
             return false;
-        }
+        }     
+       
         // добвление в начало
         public void AppendFirst(T data)
         {
@@ -123,3 +124,5 @@ namespace Task1.Structures
         }
     }
 }
+
+

@@ -14,3 +14,4 @@ C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\obj\Debug\Task1.csprojAssembly
 C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\obj\Debug\Task1.exe
 C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\obj\Debug\Task1.pdb
 D:\team international\Brisov\Task1\Task1\bin\Debug\Task1.exe.config
+C:\Users\drave\Documents\GitHub\Task1\Task1\Task1\bin\Debug\Task1.exe.config

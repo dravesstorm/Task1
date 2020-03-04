@@ -9,15 +9,15 @@ namespace Task1.Services
 {
     public class GameService
     {
-        Game game;
-        IWriter writer;
+        private Game game;
+        private IWriter writer;
+
+        private readonly double SkillRange = 0.10;
 
         public delegate void GoalHandler(Team scored);
-        public event GoalHandler eGoal;
-        public delegate void FoulHandler(Team scored);
-        public event FoulHandler eFoul = (x) => { };
+        public event GoalHandler eGoal = (x) => { };
 
-        Random rnd = new Random();
+        private Random rnd = new Random();
 
         public GameService(Game game, IWriter writer)
         {
@@ -25,16 +25,33 @@ namespace Task1.Services
             this.writer = writer;
         }
 
-        public void ShowResult()
-        {
+        public void ShowPredictions()
+        {   //расчет предположительного результата
             if (Math.Abs(game.First.TeamSkill - game.Second.TeamSkill) <
-            ((game.First.TeamSkill + game.Second.TeamSkill) / 2) * 0.10)
-                writer.WriteLine("Ничья!");
+            ((game.First.TeamSkill + game.Second.TeamSkill) / 2) * SkillRange)
+                writer.WriteLine("Скорее всего будет ничья!");
             else
             {
-                if (game.First.TeamSkill > game.Second.TeamSkill) writer.WriteLine($"{game.First.Name} победила!");
-                else writer.WriteLine($"{game.Second.Name} победила!");
+                if (game.First.TeamSkill > game.Second.TeamSkill)
+                {
+                    writer.WriteLine($"Скорее всего {game.First.Name} победит!");
+                }
+                else writer.WriteLine($"Скорее всего {game.Second.Name} победит!");
             }
+        }
+
+        public void ShowResult()
+        {
+            if (game.goalCount[0] == game.goalCount[1])
+            {
+                writer.WriteLine($"Ничья!");
+                return;
+            }
+            if (game.goalCount[0] > game.goalCount[1])
+            {
+                writer.WriteLine($"{game.First.Name} победила!");
+            }
+            else writer.WriteLine($"{game.Second.Name} победила!");
         }
 
         public void ShowGoalCount()
@@ -42,22 +59,29 @@ namespace Task1.Services
             writer.WriteLine(game.goalCount[0] + " : " + game.goalCount[1]);
         }
 
-
-
-        public void Goal(Team scored, Footballer hero)
+        public void Goal(Team scored)
         {
             eGoal.Invoke(scored);
-        }
-
-        public void Foul(Team scored)
-        {
-            eFoul.Invoke(scored);
         }
 
         public void Start()
         {
             writer.WriteLine($"Игра {game.First.Name} VS {game.Second.Name} началась!");
-            writer.WriteLine($"Рефери {game.Refery.Name} подсуживает команде {game.Refery.Pref}");
+            if (game.Refery.Pref == Preferences.FirstTeam)
+            {
+                writer.WriteLine($"Рефери {game.Refery.Name} подсуживает команде {game.First.Name}");
+            }
+            else
+            {
+                if (game.Refery.Pref == Preferences.SecondTeam)
+                {
+                    writer.WriteLine($"Рефери {game.Refery.Name} подсуживает команде {game.Second.Name}");
+                }
+                else if (game.Refery.Pref == Preferences.Neutral)
+                {
+                    writer.WriteLine($"Рефери объективно судит игру");
+                }
+            }
             try
             {   //генерация случайного исключения
                 Random rand = new Random();
@@ -87,12 +111,9 @@ namespace Task1.Services
             }
 
         }
-
         public void NoticeGoal(Team scored) //передаётся команда забившая гол
         {
             writer.WriteLine($"Команда {scored.Name} забила гол!");
-
-
 
             if (game.Refery.Pref == Preferences.Neutral)
             {
@@ -112,7 +133,6 @@ namespace Task1.Services
                     {
                         game.goalCount[0]++;
                     }
-
                     else
                     {
                         if (scored == game.Second && rnd.Next(0, 100) > 50)
@@ -122,7 +142,6 @@ namespace Task1.Services
                         }
                         else writer.WriteLine("Но гол не засчитан");
                     }
-
                 }
                 else
                 {
@@ -140,12 +159,5 @@ namespace Task1.Services
                 }
             }
         }
-
-        public void NoticeFoul(Team scored) //передаётся команда нарушившая  правила
-        {
-            writer.WriteLine($"Команда {scored.Name} нарушила правила!");
-        }
-
     }
-
 }

@@ -12,7 +12,7 @@ namespace Task1
     {
         public static void Main()
         {
-            string path = @"../../../result.txt";
+            string path = @"../../result.txt";
             IWriter cw = new ConsoleWriter();
             FileWriter filewriter = new FileWriter();
             filewriter.sw = File.CreateText(path);
@@ -34,9 +34,12 @@ namespace Task1
             barselonaServices.Add(new Footballer("Irvin", 19));
             barselonaServices.Add(new Footballer("Good", 26));
             barselonaServices.Add(new Footballer("Rosario ", 28));
-            barselonaServices.Add(new Footballer("McKinstry ", 32));
-            //удаление слабейшего игрока
-            barselonaServices.RemoveWeakest();
+
+            //добавление и удаление футболиста
+            Footballer senior = new Footballer("McKinstry ", 33);
+            barselonaServices.Add(senior);
+            barselonaServices.MyTeam.team.Remove(senior);
+
             barselonaServices.Add(new Footballer("Emelianenko ", 26));
 
             barselonaServices.Show();
@@ -78,9 +81,12 @@ namespace Task1
             GameService FIFA1service = new GameService(FIFA1, cw);
 
             FIFA1service.Start();
+            cw.WriteLine();
+            FIFA1service.ShowPredictions();
+            cw.WriteLine(); 
             FIFA1service.eGoal += FIFA1service.NoticeGoal;
-            FIFA1service.Goal(bars, bars.team[1]);
-            FIFA1service.Goal(real, real.team[2]);
+            FIFA1service.Goal(bars);
+            FIFA1service.Goal(real);
             FIFA1service.ShowGoalCount();
 
             //исход матча зависит от удачи тренера уровня навыка футболистов

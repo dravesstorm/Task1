@@ -10,7 +10,7 @@ namespace Task1.Services
     {
 
         public Team MyTeam;
-        IWriter writer;
+        private IWriter writer;
 
         public TeamService(Team _MyTeam, IWriter writer)
         {
@@ -33,28 +33,6 @@ namespace Task1.Services
             {
                 writer.WriteLine($"Ошибка: {e.Message}");
             }
-        }
-        public void Remove(string name)
-        {
-            int poka = MyTeam.team.FindIndex(x => x.Name.Contains(name));
-            MyTeam.team.RemoveAt(poka + 1);
-            SetSkillLevel();
-        }
-
-        public void RemoveWeakest()
-        {
-            int min = MyTeam.team[0].SkillLevel;
-            int poka = 0;
-            for (int i = 0; i < MyTeam.team.Count; i++)
-            {
-                if (MyTeam.team[i].SkillLevel < min)
-                {
-                    min = MyTeam.team[i].SkillLevel;
-                    poka = i;
-                }
-            }
-            MyTeam.team.RemoveAt(poka);
-            SetSkillLevel();
         }
 
         public void Show()
@@ -96,13 +74,12 @@ namespace Task1.Services
 
         void SetSkillLevel()
         {
-            MyTeam.TeamSkillLevel = 0;
-            for (int i = 0; i < MyTeam.team.Count; i++)
+            int[] levels = MyTeam.team.Select(fb => fb.SkillLevel).ToArray();
+            for (int i = 0; i < levels.Length; i++)
             {
-                MyTeam.TeamSkillLevel += MyTeam.team[i].SkillLevel;
+                MyTeam.TeamSkillLevel += levels[i];
             }
             MyTeam.TeamSkillLevel *= MyTeam.trainer.LuckLevel;
         }
-
     }
 }
