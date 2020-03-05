@@ -1,0 +1,49 @@
+Barselona
+Name: Akinshin           Age: 31		Skill: 18
+Name: Emelianenko        Age: 26		Skill: 98
+Name: Good               Age: 26		Skill: 49
+Name: Irvin              Age: 19		Skill: 99
+Name: Murphey            Age: 21		Skill: 49
+Name: PacitoSouza        Age: 24		Skill: 44
+Name: Pyatigoret         Age: 21		Skill: 97
+Name: Rosario            Age: 28		Skill: 56
+Name: Silverman          Age: 22		Skill: 86
+Name: Souza              Age: 25		Skill: 66
+Name: Tolmachev          Age: 32		Skill: 70
+
+Попытка добавить 12 игрока
+Ошибка: В основной состав нельзя добавить более 11 игроков
+Игроки старше 30 лет:
+Name: Tolmachev          Age: 32		Skill: 70
+Name: Akinshin           Age: 31		Skill: 18
+Тренер: 
+Name: Valverde           Luck: 1,20931759276861
+
+
+Real-Madrid
+Name: Abraham            Age: 32		Skill: 86
+Name: Deason             Age: 22		Skill: 92
+Name: Johnson            Age: 26		Skill: 47
+Name: Kendall            Age: 28		Skill: 81
+Name: Main               Age: 21		Skill: 42
+Name: Prasad             Age: 31		Skill: 56
+Name: Schwenk            Age: 24		Skill: 43
+Name: Stromberg          Age: 19		Skill: 41
+Name: Vanderford         Age: 32		Skill: 48
+Name: Villamor           Age: 21		Skill: 79
+Name: Whitlock           Age: 25		Skill: 24
+Тренер: 
+Name: Zidane             Luck: 1,4252766603256
+
+
+Игра Barselona VS Real-Madrid началась!
+Рефери Skomina подсуживает команде Barselona
+Началось: Землетрясение и длилось 10 минут
+
+Скорее всего Real-Madrid победит!
+
+Команда Barselona забила гол!
+Команда Real-Madrid забила гол!
+Гол засчитан
+1 : 1
+Ничья!
